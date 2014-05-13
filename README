@@ -1,0 +1,30 @@
+JORDANIZER
+==========
+
+website: http://reyale.github.io
+The Jordanizer is a brain dead stupid image to ascii generator.  It also does some fun image to an image of ascii (PLUS COLORS!).
+
+TODO
+==========
+OMFG, so many TODOs
+
+#1
+My char_brightness matrix is super suspect, I did it based on some simple programtic calculations of the black space used by the basic ascii characters.  It's sorted by most white-space to least whitespace, but I don't have a lot of confidence in it.
+
+#2
+The "remaper" class basically does a set mapping of min-max darkness of the image to my char_brightness matrix.  This doesn't map perfectly, and if the buckets_size is a multiple of *.5 this thing fucking sucks (you lose part of the range of char_brightness).  Some smart mathematical mapping of one set to the other is better, but I didn't bother.
+
+#3
+Accessor and ColorAccessor are basically fucking duplicated code, where one creates an ascii matrix, and the other creates a color tuple (based on our sampling size).  These can be combined in to one pass.
+
+#4
+write_image function has a bunch of commented out code of shit I tried to make the result look good.  These can be made program options.
+
+#5
+Performance, but it's python, what do you want?
+
+#6 
+Image destortion - I think it has to do with the fact that the font isn't perfectly 1:2 ratio, but I didn't bother figuring out exactly why things are distored.
+
+#7
+Resizing - this thing should really resize the image better than it currently does
